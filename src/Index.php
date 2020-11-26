@@ -2,7 +2,7 @@
 
 namespace leiturinha;
 
-class SayHello
+class Index
 {
     public static function world()
     {
