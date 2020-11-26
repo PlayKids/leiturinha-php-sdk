@@ -1,4 +1,4 @@
-# Leiturinha SDK
+# Leiturinha PHP SDK
 
 ## Standards
 
