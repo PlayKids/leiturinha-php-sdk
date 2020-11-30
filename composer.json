@@ -1,5 +1,5 @@
 {
-    "name": "leiturinha/leiturinha-sdk",
+    "name": "leiturinha/leiturinha-php-sdk",
     "description": "SDK for leiturinha integration",
     "type": "library",
     "authors": [{
