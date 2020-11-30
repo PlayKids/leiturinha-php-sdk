@@ -6,6 +6,7 @@
         "name": "jean-rabelo-playkids",
         "email": "jean.rabelo@playkids.com"
     }],
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.2",
         "aws/aws-sdk-php": "^3.158",
