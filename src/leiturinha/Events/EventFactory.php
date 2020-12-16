@@ -2,7 +2,7 @@
 
 namespace Leiturinha\Events;
 
-use leiturinha\Traits\ManagesKinesis;
+use Leiturinha\Traits\ManagesKinesis;
 
 class EventFactory
 {
@@ -12,7 +12,7 @@ class EventFactory
 
     public function __construct()
     {
-        $this->client = env('EVENT_CLIENT');
+        $this->client = getenv('EVENT_CLIENT');
     }
 
     public function handle($data)

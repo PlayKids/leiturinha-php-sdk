@@ -4,6 +4,7 @@ namespace Leiturinha\Traits;
 
 use Carbon\Carbon;
 use Aws\Kinesis\KinesisClient;
+use Aws\Exception\AwsException;
 
 trait ManagesKinesis
 {
@@ -12,9 +13,8 @@ trait ManagesKinesis
     protected function createKinesisClient()
     {
         $this->kinesisClient = new KinesisClient([
-            'profile' => 'default',
             'version' => '2013-12-02',
-            'region' => env('AWS_REGION')
+            'region' => getenv('AWS_REGION')
         ]);
     }
 
@@ -23,7 +23,7 @@ trait ManagesKinesis
         try {
             $this->createKinesisClient();
             $this->createRecord($data);
-        } catch (\Exception $exception) {
+        } catch (AwsException $exception) {
             /**
              * @todo resolve Exception
              */
@@ -35,7 +35,7 @@ trait ManagesKinesis
         $output = $this->kinesisClient
             ->PutRecord([
                 'Data' => $data,
-                'StreamName' => env('KINESIS_STREAM_NAME'),
+                'StreamName' => getenv('KINESIS_STREAM_NAME'),
                 'PartitionKey' => (string) Carbon::now()->timestamp
             ]);
 
