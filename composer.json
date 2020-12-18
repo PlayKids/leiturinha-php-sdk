@@ -1,23 +1,25 @@
 {
-    "name": "leiturinha/leiturinha-php-sdk",
-    "description": "SDK for leiturinha integration",
-    "type": "library",
-    "authors": [{
-        "name": "jean-rabelo-playkids",
-        "email": "jean.rabelo@playkids.com"
-    }],
-    "minimum-stability": "stable",
-    "require": {
-        "php": ">=7.2",
-        "ext-json": "*",
-        "nesbot/carbon": "^2.42",
-        "aws/aws-sdk-php": "^3.86.0",
-        "guzzlehttp/guzzle": "^6.3.3",
-        "vlucas/phpdotenv": "^5.2"
-    },
-    "autoload": {
-        "psr-4": {
-            "Leiturinha\\": "src/leiturinha"
-        }
+  "name": "leiturinha/leiturinha-php-sdk",
+  "description": "SDK for leiturinha integration",
+  "type": "library",
+  "authors": [{
+    "name": "jean-rabelo-playkids",
+    "email": "jean.rabelo@playkids.com"
+  }],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.2",
+    "ext-json": "*",
+    "nesbot/carbon": "^2.42",
+    "aws/aws-sdk-php": "^3.86.0",
+    "guzzlehttp/guzzle": "^6.3.3"
+  },
+  "require-dev": {
+    "vlucas/phpdotenv": "^5.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Leiturinha\\": "src/leiturinha"
     }
+  }
 }
