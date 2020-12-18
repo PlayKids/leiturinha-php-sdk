@@ -22,11 +22,11 @@ trait ManagesKinesis
     {
         try {
             $this->createKinesisClient();
-            $this->createRecord($data);
+            $recordId = $this->createRecord($data);
+
+            echo $recordId;
         } catch (AwsException $exception) {
-            /**
-             * @todo resolve Exception
-             */
+            echo $exception->getMessage();
         }
     }
 
@@ -39,6 +39,10 @@ trait ManagesKinesis
                 'PartitionKey' => (string) Carbon::now()->timestamp
             ]);
 
-        var_dump($output);
+        if ($output->get('@metadata')["statusCode"] === 200) {
+            return $output->get('SequenceNumber');
+        }
+
+        return null;
     }
 }
