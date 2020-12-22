@@ -2,7 +2,6 @@
 
 namespace Leiturinha\Traits;
 
-use Carbon\Carbon;
 use Aws\Kinesis\KinesisClient;
 use Aws\Exception\AwsException;
 
@@ -36,7 +35,7 @@ trait ManagesKinesis
             ->PutRecord([
                 'Data' => $data,
                 'StreamName' => getenv('KINESIS_STREAM_NAME'),
-                'PartitionKey' => (string) Carbon::now()->timestamp
+                'PartitionKey' => (string) time()
             ]);
 
         if ($output->get('@metadata')["statusCode"] === 200) {
