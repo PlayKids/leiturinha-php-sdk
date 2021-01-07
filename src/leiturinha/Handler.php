@@ -8,6 +8,7 @@ use Leiturinha\Events\EventFactory;
 class Handler
 {
     use ManagesData;
+    private $factory;
 
     public static function receiveData($data)
     {
@@ -16,5 +17,10 @@ class Handler
         if (!isset($data) || !empty($data)) {
             (new EventFactory)->handle($streamData);
         }
+    }
+
+    public function __construct()
+    {
+        $this->factory = new EventFactory();
     }
 }

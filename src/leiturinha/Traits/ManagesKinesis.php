@@ -9,14 +9,24 @@ trait ManagesKinesis
 {
     protected $kinesisClient;
 
+    /**
+     *
+     */
     protected function createKinesisClient()
     {
         $this->kinesisClient = new KinesisClient([
             'version' => '2013-12-02',
-            'region' => getenv('AWS_REGION')
+            'region' => getenv('AWS_REGION'),
+            'credentials' => [
+                'key' => getenv('AWS_ACCESS_KEY_ID_DEVELOP'),
+                'secret' => getenv('AWS_SECRET_ACCESS_KEY_DEVELOP')
+            ]
         ]);
     }
 
+    /**
+     * @param $data
+     */
     protected function resolveKinesis($data)
     {
         try {
@@ -29,6 +39,10 @@ trait ManagesKinesis
         }
     }
 
+    /**
+     * @param $data
+     * @return null
+     */
     protected function createRecord($data)
     {
         $output = $this->kinesisClient

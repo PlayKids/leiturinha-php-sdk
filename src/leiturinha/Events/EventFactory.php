@@ -4,7 +4,7 @@ namespace Leiturinha\Events;
 
 use Leiturinha\Traits\ManagesKinesis;
 
-class EventFactory
+class EventFactory implements EventFactoryInterface
 {
     use ManagesKinesis;
 
