@@ -31,9 +31,7 @@ trait ManagesKinesis
     {
         try {
             $this->createKinesisClient();
-            $recordId = $this->createRecord($data);
-
-            echo $recordId;
+            $this->createRecord($data);
         } catch (AwsException $exception) {
             echo $exception->getMessage();
         }
