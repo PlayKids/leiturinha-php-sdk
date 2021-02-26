@@ -30,6 +30,7 @@ trait ManagesKinesis
     protected function resolveKinesis($data)
     {
         try {
+            // teste
             $this->createKinesisClient();
             $this->createRecord($data);
         } catch (AwsException $exception) {
