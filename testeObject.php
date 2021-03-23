@@ -6,16 +6,19 @@ error_reporting(E_ALL);
 require "vendor/autoload.php";
 
 use Leiturinha\Object\DataCrm;
-use Leiturinha\Object\DataCustomerServiceCrm;
-use Leiturinha\Object\DataOperationalCrm;
 use Leiturinha\Object\DataWebCrm;
 use Leiturinha\Object\UserDataCrm;
+use Leiturinha\Object\DataWebLojaCrm;
+use Leiturinha\Object\UserDataPhoneCrm;
+use Leiturinha\Object\DataOperationalCrm;
 use Leiturinha\Object\UserDataInvoiceCrm;
+use Leiturinha\Object\UserDataPurchaseCrm;
+use Leiturinha\Object\DataCustomerServiceCrm;
 use Leiturinha\Object\UserDataKitShipmentsCrm;
 use Leiturinha\Object\UserDataPersonalDataCrm;
-use Leiturinha\Object\UserDataPhoneCrm;
-use Leiturinha\Object\UserDataShipmentProductsCrm;
 use Leiturinha\Object\UserDataSubscriptionCrm;
+use Leiturinha\Object\UserDataPurchaseItemsCrm;
+use Leiturinha\Object\UserDataShipmentProductsCrm;
 
 //DATA -----------------------------------------------
 
@@ -38,6 +41,12 @@ $data->removeNulls();
 // $data->id = 1;
 // $data->user_id = 2;
 // $data->subscription_id = 3;
+// $data->run();
+// $data->removeNulls();
+
+//Eventos Web loja
+// $data = new DataWebLojaCrm;
+// $data->channel = 'Leiturinha';
 // $data->run();
 // $data->removeNulls();
 
@@ -88,6 +97,19 @@ $shipmentProduct->run();
 $shipmentProduct->removeNulls();
 $shipmentProducts[0] = $shipmentProduct; // objeto simples ou array de UserDataShipmentProductsCrm
 
+//Compras (Loja leiturinha)
+$purchase = new UserDataPurchaseCrm;
+$purchase->id = 1;
+$purchase->run();
+$purchase->removeNulls();
+
+//Itens da compra (Loja leiturinha)
+$purchaseItem = new UserDataPurchaseItemsCrm;
+$purchaseItem->id = 1;
+$purchaseItem->purchase_id = 1;
+$purchaseItem->run();
+$purchaseItem->removeNulls();
+$purchaseItems[0] = $purchaseItem; // objeto simples ou array de UserDataPurchaseItemsCrm
 //
 
 //Monto objeto user_data
@@ -99,6 +121,8 @@ $userData->subscription = $subscription;
 $userData->invoice = $invoices;
 $userData->kit_shipments = $kitShipments;
 $userData->shipment_products = $shipmentProducts;
+// $userData->purchase = $purchase;
+// $userData->purchase_items = $purchaseItems;
 $userData->run();
 $userData->removeNulls();
 

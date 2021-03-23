@@ -8,7 +8,7 @@ namespace Leiturinha\Object;
  * @property string $event required max 60
  * @property bool $crm_disable
  * @property string $contact_key required
- * @property DataWebCrm|DataCustomerServiceCrm|DataOperationalCrm $data
+ * @property DataWebCrm|DataCustomerServiceCrm|DataOperationalCrm|DataWebLojaCrm $data
  * @property UserDataCrm $user_data
  */
 class DataCrm extends BaseCrm

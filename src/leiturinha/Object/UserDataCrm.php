@@ -13,6 +13,8 @@ namespace Leiturinha\Object;
  * @property UserDataInvoiceCrm|array<UserDataInvoiceCrm> $invoice
  * @property UserDataKitShipmentsCrm $kit_shipments
  * @property UserDataShipmentProductsCrm|array<UserDataShipmentProductsCrm> $shipment_products
+ * @property UserDataPurchaseCrm $purchase
+ * @property UserDataPurchaseItemsCrm|array<UserDataPurchaseItemsCrm> $purchase_items
  */
 class UserDataCrm extends BaseCrm
 {
@@ -29,6 +31,10 @@ class UserDataCrm extends BaseCrm
     public $kit_shipments;
 
     public $shipment_products;
+
+    public $purchase;
+
+    public $purchase_items;
 
     /**
      * Filter and validate
