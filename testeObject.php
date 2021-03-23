@@ -1,35 +1,10 @@
-# Leiturinha PHP SDK
+<?php
 
-## Standards
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-PHP - [PSR-12](https://www.php-fig.org/psr/psr-12/)
+require "vendor/autoload.php";
 
-Commits - [Conventional Commits](https://www.conventionalcommits.org/)
-
-## Setup
-
-Add to your composer.json:
-
-**require**: _"leiturinha/leiturinha-php-sdk" : "^0.1.0"_
-
-**repositories**: _[{"type":"vcs","url":"https://github.com/PlayKids/leiturinha-php-sdk"}]_
- 
-Now run **composer update leiturinha/leiturinha-php-sdk**
-
-## Usage
-
-```php
-use Leiturinha\Handler;
-
-$data = '{...}'; //json object
-
-Handler::receiveData($data);
-```
-
-
-## Usage classes 
-
-```php
 use Leiturinha\Object\DataCrm;
 use Leiturinha\Object\DataCustomerServiceCrm;
 use Leiturinha\Object\DataOperationalCrm;
@@ -143,5 +118,3 @@ print_r($crm->getArray());
 //ENVIO OBJETO
 //$crm->send();
 
-
-```
